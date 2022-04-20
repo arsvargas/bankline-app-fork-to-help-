@@ -21,6 +21,10 @@ export class MovimentacaoListComponent implements OnInit {
     this.exibirCorrentistas();
     this.listMovimentacoes();
   }
+  selecionarCorrentista(correntista:any){
+    this.idConta = correntista.id;
+    console.log('curent state is ' + correntista);
+  }
   listMovimentacoes(): void {
     this.movimentacaoService.findByIdConta(this.idConta)
       .subscribe(
