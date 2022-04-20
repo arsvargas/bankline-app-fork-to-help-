@@ -8,8 +8,6 @@ const baseUrl = 'http://localhost:8080';
 export class MovimentacaoService {
   constructor(private http: HttpClient) { }
   
-  //list/get/find/search/create/update/delete/patch
-
   list(): Observable<any> {
     return this.http.get(`${baseUrl}/movimentacoes`);
   }
