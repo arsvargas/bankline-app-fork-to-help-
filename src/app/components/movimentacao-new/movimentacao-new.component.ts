@@ -1,3 +1,4 @@
+import { NodeWithI18n } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { CorrentistaService } from 'src/app/services/correntista.service';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
@@ -9,14 +10,23 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 })
 export class MovimentacaoNewComponent implements OnInit {
   correntistas:any;
-
+  correntista:any;
+  
+  valor:number=0;
+  descricao:string='';
+  tipo:string='RECEITA';
+  idConta:number=0;
+  dataHora:any=Date.now;
+  
   constructor(
     private movimentacaoService: MovimentacaoService,
     private correntistaService: CorrentistaService,
     ) { }
 
   ngOnInit(): void {
+   
     this.exibirCorrentistas();
+    
   }
   exibirCorrentistas(): void {
     this.correntistaService.list()
@@ -24,6 +34,26 @@ export class MovimentacaoNewComponent implements OnInit {
         data => {
           this.correntistas = data;
           console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  save(): void {
+    console.log(this.correntista)
+    const movimentacao = {
+      valor:this.valor,
+      descricao:this.descricao,
+      tipo:this.tipo,
+      idConta:this.correntista.id,
+      dataHora:this.dataHora
+
+    };
+    console.log(movimentacao);
+    this.movimentacaoService.create(movimentacao)
+      .subscribe(
+        response => {
+          console.log(response);
         },
         error => {
           console.log(error);

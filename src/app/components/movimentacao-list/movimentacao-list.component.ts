@@ -12,21 +12,19 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 export class MovimentacaoListComponent implements OnInit {
   movimentacoes:any;
   correntistas:any;
-  idConta:any
+  correntista:any={};
+  selected:string='';
+  nomes=['a','b'];
   constructor(
     private movimentacaoService: MovimentacaoService,
     private correntistaService: CorrentistaService,
     ) { }
   ngOnInit(): void {
     this.exibirCorrentistas();
-    this.listMovimentacoes();
   }
-  selecionarCorrentista(correntista:any){
-    this.idConta = correntista.id;
-    console.log('curent state is ' + correntista);
-  }
+  
   listMovimentacoes(): void {
-    this.movimentacaoService.findByIdConta(this.idConta)
+    this.movimentacaoService.findByIdConta(this.correntista.id)
       .subscribe(
         data => {
           this.movimentacoes = data;
@@ -47,5 +45,6 @@ export class MovimentacaoListComponent implements OnInit {
           console.log(error);
         });
   }
+  
 }
 
