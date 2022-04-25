@@ -28,11 +28,11 @@
             </div>
             <div class="col-md-2">
               <label for="iValor" class="form-label">R$ Valor</label>
-              <input type="text" [(ngModel)]="valor" class="form-control" id="iValor">
+              <input type="text"  [(ngModel)]="valor" class="form-control" id="iValor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
             </div>
             <div class="d-grid gap-2 d-md-flex ">
                 <button class="btn btn-outline-primary me-md-2 btn-sm" type="button" (click)="save()">Confirmar</button>
-                <a routerLink="/movimentacoes" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                <a routerLink="/movimentacoes" class="btn btn-outline-danger btn-sm">Voltar</a>
               </div>
             </div>
       </div>

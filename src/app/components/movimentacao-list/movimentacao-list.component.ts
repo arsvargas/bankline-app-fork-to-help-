@@ -13,8 +13,6 @@ export class MovimentacaoListComponent implements OnInit {
   movimentacoes:any;
   correntistas:any;
   correntista:any={};
-  selected:string='';
-  nomes=['a','b'];
   constructor(
     private movimentacaoService: MovimentacaoService,
     private correntistaService: CorrentistaService,
