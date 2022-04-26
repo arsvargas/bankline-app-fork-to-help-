@@ -9,6 +9,7 @@ const routes: Routes = [
 
   { path: 'movimentacoes-new', component: MovimentacaoNewComponent },
   { path: 'movimentacoes', component: MovimentacaoListComponent },
+  { path: 'correntistas', component: CorrentistaComponent },
   { path: '', redirectTo: 'movimentacoes', pathMatch: 'full' },
 
 ];

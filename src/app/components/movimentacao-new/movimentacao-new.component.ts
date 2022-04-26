@@ -8,14 +8,15 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
   styleUrls: ['./movimentacao-new.component.css']
 })
 export class MovimentacaoNewComponent implements OnInit {
-  correntistas:any;
-  correntista:any;
-
   dataHora:any;
   descricao:any;
   valor:any;
   tipo:any;
+  
+  correntistas:any;
+  correntista:any;
 
+  
   constructor(
     private movimentacaoService: MovimentacaoService,
     private correntistaService: CorrentistaService,
