@@ -42,9 +42,7 @@ export class MovimentacaoNewComponent implements OnInit {
       valor:this.valor,
       descricao:this.descricao,
       tipo:this.tipo,
-      idConta:this.correntista.id,
-      dataHora:this.dataHora
-
+      idConta:this.correntista.id
     };
     console.log(movimentacao);
     this.movimentacaoService.create(movimentacao)
